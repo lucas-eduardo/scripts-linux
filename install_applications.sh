@@ -54,5 +54,15 @@ else
     echo "Google Chrome já está instalado."
 fi
 
+# Instala o NVM
+if ! command -v nvm &> /dev/null
+then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+else
+    echo "NVM já está instalado."
+fi
+
 echo "Instalação concluída!"
 
